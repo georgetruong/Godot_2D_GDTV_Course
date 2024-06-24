@@ -1,27 +1,43 @@
-[gd_scene load_steps=5 format=3 uid="uid://bh56ju3beaff3"]
+[gd_scene load_steps=6 format=3 uid="uid://bh56ju3beaff3"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_nslp3"]
 [ext_resource type="PackedScene" uid="uid://b5whbem7lakdx" path="res://scenes/player.tscn" id="2_xcnie"]
 [ext_resource type="Texture2D" uid="uid://bcnr4mr4ymwjm" path="res://icon.svg" id="3_vv6l6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iimtr"]
-size = Vector2(257, 20)
+size = Vector2(258, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hh8tl"]
+size = Vector2(1000, 100)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_nslp3")
 
 [node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(130, 179)
+position = Vector2(11, 238)
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground"]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(118, -1.90735e-06)
-scale = Vector2(2, 0.171875)
+position = Vector2(118.5, -1.90735e-06)
+scale = Vector2(2.00781, 0.171875)
 texture = ExtResource("3_vv6l6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-position = Vector2(118.5, 0)
+position = Vector2(119, 0)
 shape = SubResource("RectangleShape2D_iimtr")
 
 [node name="Player" parent="." instance=ExtResource("2_xcnie")]
-position = Vector2(242, 27)
+position = Vector2(19, 225)
+
+[node name="Deathzone" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
+position = Vector2(500, 329.5)
+shape = SubResource("RectangleShape2D_hh8tl")
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(142, 146)
+
+[connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_body_entered"]
