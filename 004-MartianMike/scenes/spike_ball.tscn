@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfkxqvpmjhxl"]
+
+[ext_resource type="Texture2D" uid="uid://cgivli0tptqgr" path="res://assets/textures/other/Spiked Ball.png" id="1_jwv0y"]
+[ext_resource type="Script" path="res://scripts/trap.gd" id="2_c10n5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lyl0x"]
+radius = 12.0
+
+[node name="SpikeBall" type="Node2D"]
+script = ExtResource("2_c10n5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jwv0y")
+script = ExtResource("2_c10n5")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_lyl0x")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Area2D/CollisionShape2D")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
