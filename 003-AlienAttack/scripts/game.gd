@@ -9,6 +9,9 @@ var gos_scene = preload("res://scenes/game_over_screen.tscn")
 @onready var enemy_container = $EnemyContainer
 @onready var hud = $UI/HUD
 
+@onready var enemy_hit_sound = $EnemyHitSound
+@onready var player_hit_sound = $PlayerHitSound
+
 func _ready():
 	hud.set_score_label(score)
 	hud.set_lives_left_label(lives)
@@ -20,6 +23,7 @@ func _on_deathzone_area_entered(area:Area2D):
 func _on_player_took_damage():
 	lives -= 1
 	hud.set_lives_left_label(lives)
+	player_hit_sound.play()
 	if lives == 0:
 		player.die()
 		hud.hide()
@@ -36,6 +40,6 @@ func _on_enemy_spawner_enemy_spawned(enemy_instance):
 	enemy_container.add_child(enemy_instance)
 
 func _on_enemy_died():
-	# BUG(?) - Score increases when player collides with enemy
 	score += 100
 	hud.set_score_label(score)
+	enemy_hit_sound.play()
