@@ -1,0 +1,97 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkvq8qsgv1qwy"]
+
+[ext_resource type="FontFile" uid="uid://s6wcupl1tlkl" path="res://assets/font/Kenney Blocks.ttf" id="1_4pw5y"]
+[ext_resource type="Script" path="res://scripts/game_over_screen.gd" id="1_ft03u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xtj4r"]
+bg_color = Color(0.572669, 1.02278e-06, 1.92523e-07, 0.584314)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_hgqpf"]
+font = ExtResource("1_4pw5y")
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_88lda"]
+font = ExtResource("1_4pw5y")
+font_size = 32
+font_color = Color(1, 0.933333, 1, 1)
+
+[node name="GameOverScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ft03u")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -349.0
+offset_top = -230.0
+offset_right = 349.0
+offset_bottom = 230.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xtj4r")
+
+[node name="GameOver" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.0
+offset_top = -130.0
+offset_right = 208.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_hgqpf")
+
+[node name="Score" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.0
+offset_top = -30.0
+offset_right = 208.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SCORE: 999999
+"
+label_settings = SubResource("LabelSettings_88lda")
+horizontal_alignment = 1
+
+[node name="RetryButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.5
+offset_top = 70.0
+offset_right = 162.5
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_4pw5y")
+theme_override_font_sizes/font_size = 44
+text = "TRY AGAIN"
+
+[connection signal="pressed" from="Panel/RetryButton" to="." method="_on_retry_button_pressed"]
