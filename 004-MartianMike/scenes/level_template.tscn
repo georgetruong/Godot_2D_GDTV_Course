@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpgxv16paqslk"]
+[gd_scene load_steps=9 format=3 uid="uid://dpgxv16paqslk"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_cbjxq"]
+[ext_resource type="PackedScene" uid="uid://dtwc2rade5bnd" path="res://scenes/ui_layer.tscn" id="2_6eidq"]
 [ext_resource type="PackedScene" uid="uid://cwjp0qwtc4bfe" path="res://scenes/bg.tscn" id="3_sdfqy"]
 [ext_resource type="PackedScene" uid="uid://mlw6pnov5sp5" path="res://scenes/tile_map.tscn" id="5_ev7l4"]
 [ext_resource type="PackedScene" uid="uid://c6w1llv4msjv" path="res://scenes/start.tscn" id="6_hdroi"]
@@ -10,6 +11,8 @@
 
 [node name="LevelTemplate" type="Node2D"]
 script = ExtResource("1_cbjxq")
+
+[node name="UILayer" parent="." instance=ExtResource("2_6eidq")]
 
 [node name="BG" parent="." instance=ExtResource("3_sdfqy")]
 
