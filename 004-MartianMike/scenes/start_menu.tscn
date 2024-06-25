@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8watb8y6qb6u"]
+
+[ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_030p6"]
+[ext_resource type="PackedScene" uid="uid://cwjp0qwtc4bfe" path="res://scenes/bg.tscn" id="2_sj0g2"]
+[ext_resource type="FontFile" uid="uid://b5q52bn1dxw7f" path="res://assets/fonts/Kenney Pixel Square.ttf" id="3_rb8ex"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nr8gs"]
+font = ExtResource("3_rb8ex")
+font_size = 48
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
+[node name="StartMenu" type="Node2D"]
+script = ExtResource("1_030p6")
+
+[node name="BG" parent="." instance=ExtResource("2_sj0g2")]
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="UILayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="UILayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.0
+offset_top = -85.0
+offset_right = 208.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MARTIAN MIKE"
+label_settings = SubResource("LabelSettings_nr8gs")
+
+[node name="StartButton" type="Button" parent="UILayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = 10.0
+offset_right = -9.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_rb8ex")
+theme_override_font_sizes/font_size = 16
+text = "START"
+
+[node name="QuitButton" type="Button" parent="UILayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = 11.0
+offset_right = 91.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_rb8ex")
+theme_override_font_sizes/font_size = 16
+text = "QUIT"
+
+[connection signal="pressed" from="UILayer/Control/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="UILayer/Control/QuitButton" to="." method="_on_quit_button_pressed"]
