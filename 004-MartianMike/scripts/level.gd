@@ -17,6 +17,7 @@ func _process(delta):
 		get_tree().reload_current_scene()
 
 func _on_deathzone_body_entered(body:Node2D):
+	print("dz")
 	reset_player()
 
 func _on_trap_touched_player():

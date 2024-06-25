@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bh56ju3beaff3"]
+[gd_scene load_steps=9 format=3 uid="uid://bh56ju3beaff3"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_nslp3"]
+[ext_resource type="PackedScene" uid="uid://cwjp0qwtc4bfe" path="res://scenes/bg.tscn" id="2_ryvy8"]
 [ext_resource type="PackedScene" uid="uid://b5whbem7lakdx" path="res://scenes/player.tscn" id="2_xcnie"]
 [ext_resource type="PackedScene" uid="uid://76tsbdtej8yp" path="res://scenes/jump_pad.tscn" id="4_jo2fb"]
 [ext_resource type="PackedScene" uid="uid://dg6i8hq4nvgkq" path="res://scenes/saw.tscn" id="4_y80u4"]
@@ -8,10 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://mlw6pnov5sp5" path="res://scenes/tile_map.tscn" id="7_s0p0m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hh8tl"]
-size = Vector2(1000, 100)
+size = Vector2(2112, 100)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_nslp3")
+
+[node name="BG" parent="." instance=ExtResource("2_ryvy8")]
 
 [node name="Player" parent="." instance=ExtResource("2_xcnie")]
 position = Vector2(14, 208)
@@ -21,7 +24,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
-position = Vector2(500, 329.5)
+position = Vector2(800, 329.5)
 shape = SubResource("RectangleShape2D_hh8tl")
 
 [node name="StartPosition" type="Marker2D" parent="."]
