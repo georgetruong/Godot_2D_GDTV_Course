@@ -3,6 +3,7 @@ class_name Player
 
 var current_jumps = 0
 var max_jumps = 2
+var active = true
 
 @export var gravity = 400
 @export var jump_force = 200
@@ -21,12 +22,14 @@ func _physics_process(delta):
 	else:
 		current_jumps = 0
 
-	if Input.is_action_just_pressed("jump") && current_jumps < max_jumps: #&& is_on_floor():
-		jump(jump_force)
+	var direction = 0
+	if active:
+		if Input.is_action_just_pressed("jump") && current_jumps < max_jumps: #&& is_on_floor():
+			jump(jump_force)
 
-	var direction = Input.get_axis("move_left", "move_right")
+		direction = Input.get_axis("move_left", "move_right")
+
 	velocity.x = direction * speed * delta
-
 	move_and_slide()
 	update_animations(direction)
 
