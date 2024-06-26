@@ -38,7 +38,7 @@ offset_right = 208.0
 offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "MARTIAN MIKE"
+text = "JUPITER JUMPER"
 label_settings = SubResource("LabelSettings_nr8gs")
 
 [node name="StartButton" type="Button" parent="UILayer/Control"]
