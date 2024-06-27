@@ -1,14 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8watb8y6qb6u"]
+[gd_scene load_steps=7 format=3 uid="uid://b8watb8y6qb6u"]
 
 [ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_030p6"]
 [ext_resource type="PackedScene" uid="uid://cwjp0qwtc4bfe" path="res://scenes/bg.tscn" id="2_sj0g2"]
 [ext_resource type="FontFile" uid="uid://b5q52bn1dxw7f" path="res://assets/fonts/Kenney Pixel Square.ttf" id="3_rb8ex"]
+[ext_resource type="PackedScene" uid="uid://blkqfcbnndrek" path="res://scenes/mute_button.tscn" id="4_37dli"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nr8gs"]
 font = ExtResource("3_rb8ex")
 font_size = 48
 outline_size = 15
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3l3ab"]
 
 [node name="StartMenu" type="Node2D"]
 script = ExtResource("1_030p6")
@@ -74,6 +77,13 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_rb8ex")
 theme_override_font_sizes/font_size = 16
 text = "QUIT"
+
+[node name="MuteButton" parent="UILayer/Control" instance=ExtResource("4_37dli")]
+layout_mode = 0
+offset_right = 34.0
+offset_bottom = 20.0
+theme_override_font_sizes/font_size = 8
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3l3ab")
 
 [connection signal="pressed" from="UILayer/Control/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="UILayer/Control/QuitButton" to="." method="_on_quit_button_pressed"]
