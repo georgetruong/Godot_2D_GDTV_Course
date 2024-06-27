@@ -2,8 +2,12 @@ extends Node
 
 var hurt = preload("res://assets/audio/hurt.wav")
 var jump = preload("res://assets/audio/jump.wav")
-var mute_all: bool = false
+var mute_all: bool = true
 var sfx_volume_db = 0
+
+func _ready():
+	$MusicPlayer.volume_db = -100
+	sfx_volume_db = -100
 
 func play_sfx(sfx_name: String):
 	var stream = null 

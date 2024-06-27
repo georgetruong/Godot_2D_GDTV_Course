@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtwc2rade5bnd"]
+[gd_scene load_steps=5 format=3 uid="uid://dtwc2rade5bnd"]
 
 [ext_resource type="Script" path="res://scripts/ui_layer.gd" id="1_ewvg3"]
 [ext_resource type="PackedScene" uid="uid://bjm50ngryylb4" path="res://scenes/hud.tscn" id="1_tvecd"]
 [ext_resource type="PackedScene" uid="uid://ca5aa2purrlc5" path="res://scenes/win_screen.tscn" id="2_x6mjn"]
+[ext_resource type="PackedScene" uid="uid://cgu0detktpbf2" path="res://scenes/lose_screen.tscn" id="4_ts7tm"]
 
 [node name="UILayer" type="CanvasLayer"]
 script = ExtResource("1_ewvg3")
@@ -10,4 +11,7 @@ script = ExtResource("1_ewvg3")
 [node name="HUD" parent="." instance=ExtResource("1_tvecd")]
 
 [node name="WinScreen" parent="." instance=ExtResource("2_x6mjn")]
+visible = false
+
+[node name="LoseScreen" parent="." instance=ExtResource("4_ts7tm")]
 visible = false

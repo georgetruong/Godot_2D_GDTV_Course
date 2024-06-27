@@ -78,6 +78,8 @@ func _on_level_timer_timeout():
 		time_left -= 1
 		hud.set_time_label(time_left)
 		if time_left <= 0:
-			reset_player()
-			time_left = level_time
-			hud.set_time_label(time_left)
+			hud.set_time_label(0)
+			timer_node.stop()
+
+			player.active = false
+			ui_layer.show_lose_screen(true)
