@@ -74,6 +74,16 @@ text = "Press 'A' & 'D'
 key to move"
 label_settings = SubResource("LabelSettings_kv5b5")
 
+[node name="Tip8" type="Label" parent="Tips"]
+z_index = -50
+offset_left = -72.0
+offset_top = 144.0
+offset_right = 96.0
+offset_bottom = 183.0
+text = "REACH THE EXIT BEFORE
+ TIME RUNS OUT"
+label_settings = SubResource("LabelSettings_kv5b5")
+
 [node name="Tip2" type="Label" parent="Tips"]
 z_index = -50
 offset_left = 112.0
