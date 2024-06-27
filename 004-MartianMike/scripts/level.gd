@@ -67,9 +67,12 @@ func _on_exit_body_entered(body):
 			player.active = false
 			exit.animate()
 			win = true
+			if is_final_level:
+				$Exit/FireworksVFX.emitting = true
 			await get_tree().create_timer(1.5).timeout
 			if is_final_level:
 				ui_layer.show_win_screen(true)	
+				AudioPlayer.play_win_music()
 			else:
 				get_tree().change_scene_to_packed(next_level)
 

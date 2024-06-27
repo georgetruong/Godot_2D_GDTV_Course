@@ -1,7 +1,39 @@
-[gd_scene load_steps=14 format=3 uid="uid://d3tvmnwkj5v04"]
+[gd_scene load_steps=19 format=3 uid="uid://d3tvmnwkj5v04"]
 
 [ext_resource type="Script" path="res://scripts/exit.gd" id="1_8oe0d"]
 [ext_resource type="Texture2D" uid="uid://bd36memia7yco" path="res://assets/textures/other/End (Pressed) (64x64).png" id="1_st7nf"]
+
+[sub_resource type="Gradient" id="Gradient_ddrdk"]
+offsets = PackedFloat32Array(0, 0.442623, 1)
+colors = PackedColorArray(0.9, 1, 0, 0, 0.9, 1, 0, 1, 1, 0.466667, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8s1nn"]
+gradient = SubResource("Gradient_ddrdk")
+
+[sub_resource type="Curve" id="Curve_oukre"]
+min_value = -1.0
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(1, 1), 2.8, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_52s8a"]
+curve = SubResource("Curve_oukre")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h5sn4"]
+particle_flag_disable_z = true
+angle_min = 45.0
+angle_max = 60.0
+velocity_pivot = Vector3(0, -500, 0)
+direction = Vector3(0, 1, 0)
+spread = 59.157
+flatness = 0.6
+initial_velocity_min = 100.0
+initial_velocity_max = 150.0
+gravity = Vector3(0, 98, 0)
+scale_max = 5.0
+color = Color(1, 0.943333, 0.15, 1)
+color_ramp = SubResource("GradientTexture1D_8s1nn")
+hue_variation_max = 0.25
+hue_variation_curve = SubResource("CurveTexture_52s8a")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t57aj"]
 atlas = ExtResource("1_st7nf")
@@ -77,6 +109,14 @@ size = Vector2(32, 8)
 collision_layer = 16
 collision_mask = 2
 script = ExtResource("1_8oe0d")
+
+[node name="FireworksVFX" type="GPUParticles2D" parent="."]
+position = Vector2(0, -28)
+rotation = -3.14159
+emitting = false
+amount = 250
+process_material = SubResource("ParticleProcessMaterial_h5sn4")
+lifetime = 2.5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -32)

@@ -1,9 +1,96 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8watb8y6qb6u"]
+[gd_scene load_steps=21 format=3 uid="uid://b8watb8y6qb6u"]
 
 [ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_030p6"]
 [ext_resource type="PackedScene" uid="uid://cwjp0qwtc4bfe" path="res://scenes/bg.tscn" id="2_sj0g2"]
 [ext_resource type="FontFile" uid="uid://b5q52bn1dxw7f" path="res://assets/fonts/Kenney Pixel Square.ttf" id="3_rb8ex"]
 [ext_resource type="PackedScene" uid="uid://blkqfcbnndrek" path="res://scenes/mute_button.tscn" id="4_37dli"]
+[ext_resource type="PackedScene" uid="uid://mlw6pnov5sp5" path="res://scenes/tile_map.tscn" id="5_nv8pk"]
+[ext_resource type="Texture2D" uid="uid://c18q7bijo88m1" path="res://assets/textures/player/Idle (32x32).png" id="6_3og2c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2f3n"]
+atlas = ExtResource("6_3og2c")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1di20"]
+atlas = ExtResource("6_3og2c")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvpm0"]
+atlas = ExtResource("6_3og2c")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltjc2"]
+atlas = ExtResource("6_3og2c")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxvkg"]
+atlas = ExtResource("6_3og2c")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1kro"]
+atlas = ExtResource("6_3og2c")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgish"]
+atlas = ExtResource("6_3og2c")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xd688"]
+atlas = ExtResource("6_3og2c")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojh0a"]
+atlas = ExtResource("6_3og2c")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8b65"]
+atlas = ExtResource("6_3og2c")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2oy3"]
+atlas = ExtResource("6_3og2c")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8hf4n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2f3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1di20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvpm0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltjc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxvkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1kro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgish")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xd688")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojh0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8b65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2oy3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nr8gs"]
 font = ExtResource("3_rb8ex")
@@ -17,6 +104,14 @@ outline_color = Color(0, 0, 0, 1)
 script = ExtResource("1_030p6")
 
 [node name="BG" parent="." instance=ExtResource("2_sj0g2")]
+
+[node name="TileMap" parent="." instance=ExtResource("5_nv8pk")]
+layer_0/tile_data = PackedInt32Array(1114142, 524288, 2, 1048606, 524288, 1, 983070, 524288, 1, 917534, 524288, 1, 1114141, 458752, 2, 1048605, 458752, 1, 983069, 458752, 1, 917533, 458752, 1, 1114140, 458752, 2, 1048604, 458752, 1, 983068, 458752, 1, 917532, 458752, 1, 1114139, 458752, 2, 1048603, 458752, 1, 983067, 458752, 1, 917531, 458752, 1, 1114136, 458752, 2, 1048600, 458752, 1, 983064, 458752, 1, 917528, 458752, 1, 1114135, 458752, 2, 1048599, 458752, 1, 983063, 458752, 1, 917527, 458752, 1, 1114134, 393216, 2, 1048598, 393216, 1, 983062, 393216, 1, 1114129, 524288, 2, 1048593, 524288, 1, 983057, 524288, 1, 1114128, 458752, 2, 1048592, 458752, 1, 983056, 458752, 1, 917520, 458752, 0, 1114127, 458752, 2, 1048591, 458752, 1, 983055, 458752, 1, 917519, 458752, 0, 1114126, 458752, 2, 1048590, 458752, 1, 983054, 458752, 1, 917518, 458752, 0, 1114125, 393216, 2, 1048589, 393216, 1, 983053, 393216, 1, 917517, 393216, 0, 1114120, 458752, 2, 1048584, 458752, 1, 1114119, 458752, 2, 1048583, 458752, 1, 1114115, 458752, 2, 1048579, 458752, 1, 983043, 458752, 1, 917507, 458752, 1, 1114114, 458752, 2, 1048578, 458752, 1, 983042, 458752, 1, 917506, 458752, 1, 1114113, 458752, 2, 1048577, 458752, 1, 983041, 458752, 1, 917505, 458752, 1, 1114112, 393216, 2, 1048576, 393216, 1, 983040, 393216, 1, 917504, 393216, 1, 851971, 458752, 1, 851998, 524288, 1, 786462, 524288, 1, 720926, 524288, 1, 655390, 524288, 1, 589854, 524288, 1, 524318, 524288, 1, 458782, 524288, 0, 851997, 458752, 1, 786461, 458752, 1, 720925, 458752, 1, 655389, 458752, 1, 589853, 458752, 1, 524317, 458752, 1, 458781, 458752, 0, 851996, 458752, 1, 786460, 458752, 1, 720924, 458752, 1, 655388, 458752, 1, 589852, 458752, 1, 524316, 458752, 1, 458780, 458752, 0, 851995, 458752, 1, 786459, 458752, 1, 720923, 458752, 1, 655387, 655360, 1, 589851, 393216, 1, 524315, 393216, 1, 458779, 393216, 0, 851992, 458752, 1, 786456, 458752, 0, 851991, 458752, 1, 786455, 458752, 0, 851970, 655360, 1, 851969, 458752, 0, 851968, 393216, 0, 917521, 524288, 0, 983048, 458752, 0, 983047, 458752, 0, 851984, 1245184, 8, 851983, 1179648, 8, 851982, 1114112, 8, 917526, 393216, 1, 851990, 393216, 1, 786454, 393216, 0, 1114121, 524288, 2, 1048585, 524288, 1, 983049, 524288, 0, 786435, 458752, 1, 720899, 458752, 1, 655363, 458752, 0, 786434, 393216, 1, 720898, 393216, 1, 655362, 393216, 0, 1114118, 458752, 2, 1048582, 458752, 1, 983046, 458752, 0, 1114117, 458752, 2, 1048581, 458752, 1, 983045, 458752, 0, 1114116, 458752, 2, 1048580, 458752, 1, 983044, 589824, 1, 917508, 524288, 1, 851972, 524288, 1, 786436, 524288, 1, 720900, 524288, 1, 655364, 524288, 0, 1114138, 458752, 2, 1048602, 458752, 1, 983066, 458752, 1, 917530, 458752, 1, 851994, 458752, 1, 786458, 458752, 1, 1114137, 458752, 2, 1048601, 458752, 1, 983065, 458752, 1, 917529, 458752, 1, 851993, 458752, 1, 786457, 655360, 1, 720922, 458752, 1, 655386, 458752, 0, 720921, 393216, 1, 655385, 393216, 0)
+
+[node name="Character" type="AnimatedSprite2D" parent="."]
+position = Vector2(248, 192)
+sprite_frames = SubResource("SpriteFrames_8hf4n")
+autoplay = "default"
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 
@@ -35,10 +130,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -208.0
-offset_top = -85.0
-offset_right = 208.0
-offset_bottom = -12.0
+offset_left = -210.0
+offset_top = -110.0
+offset_right = 210.0
+offset_bottom = -38.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "JUPITER JAMES"
@@ -52,9 +147,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -84.0
-offset_top = 10.0
+offset_top = -15.0
 offset_right = -9.0
-offset_bottom = 42.0
+offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_rb8ex")
@@ -69,9 +164,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 16.0
-offset_top = 11.0
+offset_top = -15.0
 offset_right = 91.0
-offset_bottom = 43.0
+offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_rb8ex")
@@ -84,6 +179,21 @@ offset_right = 34.0
 offset_bottom = 20.0
 theme_override_font_sizes/font_size = 8
 theme_override_styles/focus = SubResource("StyleBoxEmpty_3l3ab")
+
+[node name="LinkButton" type="LinkButton" parent="UILayer/Control"]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 250.0
+offset_right = 477.0
+offset_bottom = 266.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/underline_spacing = 2
+theme_override_fonts/font = ExtResource("3_rb8ex")
+theme_override_font_sizes/font_size = 8
+text = "gosugeorge.itch.io"
+underline = 2
+uri = "https://gosugeorge.itch.io"
 
 [connection signal="pressed" from="UILayer/Control/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="UILayer/Control/QuitButton" to="." method="_on_quit_button_pressed"]
